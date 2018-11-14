@@ -82,3 +82,55 @@ trex.data %>%
     panel.background = element_rect(fill = "#fcedcc"),
     legend.position = "bottom"
     )
+
+#Addendum ---
+# Got a bunch of complaints about Trix... and I like Tristan
+
+add.specimens <- tibble::tribble(
+  ~Name, ~Discovered, ~Formation, ~Location, ~comp,
+  "Trix", 2013, "Hell Creek Formation", "Montana", 77,
+  "Tristan \n(MB.R.91216)", 2010, "Hell Creek Formation", "Carter County, Montana", 57
+)
+
+add.data <- add.specimens %>% 
+  mutate(plot = map(comp, function(comp){
+    keep_k <- sample(1:100, comp)
+    return(trex.pic2 %>% filter(cluster %in% keep_k))
+  })) %>% 
+  unnest(plot)
+
+add.labels <- add.specimens %>% 
+  mutate(label_p = paste0(round(comp), "%"),
+         label_d = paste0("Discovered: ", Discovered, "\n",
+                          Location))
+
+add.data %>% 
+  ggplot(aes(x=x, y=y, fill = Formation)) +
+  geom_raster() +
+  scale_fill_manual(values = "#ff4040") +
+  coord_fixed() +
+  geom_text(data = add.labels, aes(label = label_p), 
+            x = 30, y = 30, size = 5, 
+            color = "#00436b", fontface = "bold") +
+  geom_text(data = add.labels, aes(label = label_d),
+            x = 400, y = 40, size = 4) +
+  facet_wrap(~Name, ncol = 2) +
+  labs(title = "Addendum: Tyrannosaurus rex fossils, % of skeleton discovered",
+       subtitle = "Sorted by date discovered, colored by geological formation discovered",
+       caption = paste0("Data: https://en.wikipedia.org/wiki/Specimens_of_Tyrannosaurus\n",
+                        "Image: phylopic.org\n",
+                        "Ryan Timpe .com")) +
+  theme_minimal() +
+  theme(
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    panel.grid = element_blank(),
+    strip.background = element_rect(fill = "#00436b"),
+    strip.text = element_text(color = "white", face = "bold"),
+    plot.background = element_rect(fill = "#fcedcc"),
+    plot.title = element_text(size = 20, face = "bold"),
+    plot.subtitle = element_text(size = 16),
+    panel.background = element_rect(fill = "#fcedcc"),
+    legend.position = "bottom"
+  )
+
