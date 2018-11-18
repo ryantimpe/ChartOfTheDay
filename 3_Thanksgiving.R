@@ -88,6 +88,7 @@ trk.col.orange <- c("#ff6141")
 trk.col.red <- c("#8B0000", "#ff4040")
 trk.col.gold <- c("#D4AF37", "#CFB53B", "#C5B358")
 trk.col.blue <- c("#00436b")
+trk.col.ltblue <- c("#5384ff")
 
 trk.colors <- c(trk.col.orange, trk.col.blue, trk.col.gold[1], trk.col.red[1])
 trk.colors2 <- c(trk.col.orange, trk.col.blue, trk.col.gold[1], trk.col.red[1], "#5384ff", "#ff25ab")
@@ -100,7 +101,7 @@ trk_chart_theme <- theme(
   plot.background = element_rect(fill = "#fcedcc"),
   plot.title = element_text(size = 16, face = "bold"),
   plot.subtitle = element_text(size = 10),
-  panel.background = element_rect(fill = "#fcedcc"),
+  panel.background = element_rect(fill = "#e4c8ac"),
   legend.position = "bottom"
 )
 
@@ -147,7 +148,7 @@ f14 %>%
   trk_chart_theme +
   theme(
     axis.text = element_blank(),
-    axis.title = element_blanks()
+    axis.title = element_blank()
   )
 
 # Fact 15 ----
@@ -180,7 +181,11 @@ f15 %>%
        caption = chart_footer) + 
   guides(fill = guide_legend(nrow=2))+
   theme_minimal() + 
-  trk_chart_theme
+  trk_chart_theme +
+  theme(
+    axis.text = element_blank(),
+    axis.title = element_blank()
+  )
 
 # Fact 19 ----
 fact.index <- 19
@@ -207,7 +212,11 @@ f19 %>%
        subtitle = wrapper(fact, 90),
        caption = chart_footer) + 
   theme_minimal() + 
-  trk_chart_theme
+  trk_chart_theme +
+  theme(
+    axis.text = element_blank(),
+    axis.title = element_blank()
+  )
 
   
 # Fact 63 ----
@@ -223,7 +232,7 @@ f63 <- trk2.pic %>%
 
 f63 %>% 
   ggplot(aes(x=x, y=y)) +
-  geom_point( color = trk.col.red[1], size = 1, shape = 18) +
+  geom_point( color = trk.col.red[1], size = 3, alpha = 0.5, shape = 18) +
   coord_fixed() +
   # geom_text(aes(paste0("Fact #", fact.index)),
   #           x = 220, y = 20, size = 5, color = trk.col.blue) +
@@ -232,7 +241,46 @@ f63 %>%
        caption = chart_footer) + 
   guides(fill = guide_legend(nrow=2))+
   theme_minimal() + 
-  trk_chart_theme
+  trk_chart_theme +
+  theme(
+    axis.text = element_blank(),
+    axis.title = element_blank()
+  )
+
+# Fact 48 ----
+fact.index <- 48
+fact <- trk.fact[fact.index]
+"Wild turkeys can fly for short distances up to 55 mph and can run 20 mph."
+
+f48 <- tribble(
+  ~Method, ~Speed, ~Label,
+  "Flying", 55, "55 mph",
+  "Running", 20, "20 mph",
+  "Caged", 1, "#buyorganic"
+) %>% 
+  mutate(Method = fct_relevel(Method, "Caged", "Running", "Flying"))
+
+f48 %>% 
+  ggplot(aes(x = Method, y = Speed, fill = Method)) +
+  geom_col(width = 0.5) + 
+  scale_fill_manual(values = c("Flying" = trk.col.ltblue, "Running" = trk.col.gold[1],
+                               "Caged" = trk.col.red[2])) +
+  geom_text(aes(label = Label), hjust = 0, nudge_y = 1, size = 6) +
+  coord_flip() +
+  scale_y_continuous(limits = c(0, 70)) +
+  labs(title = "Turkey speed, by mobility method",
+       subtitle = wrapper(fact, 90),
+       caption = paste0("Images: phylopic.org\n", chart_footer)) + 
+  theme_minimal() +
+  trk_chart_theme +
+  theme(
+    axis.text.y =  element_text(size = 12, face = 'bold', color = "black"),
+    axis.title.y = element_blank(),
+    axis.text.x = element_text(size = 12, face = 'bold', color = "black"),
+    axis.title.x = element_text(size = 14, face = "bold"),
+    axis.line.x = element_line(color = "black"),
+    legend.position = "none"
+  )
 
 # Fact 27 - Evolution ----
 fact.index <- 27
