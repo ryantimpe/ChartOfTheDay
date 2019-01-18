@@ -1,0 +1,32 @@
+Team,Conference,Division,Col1,Col2,Col3,Col1_Desc,Col2_Desc,Col3_Desc
+ANA,Western,Pacific,#000000,#91764B,#EF5225,Black,Gold,Orange
+ARI,Western,Pacific,#841F27,#000000,#EFE1C6,Maroon,Black,Tan
+BOS,Eastern,Atlantic,#FFC422,#000000,,Yellow,Black,
+BUF,Eastern,Atlantic,#002E62,#FDBB2F,#AEB6B9,Navy,Yellow,Light Grey
+CGY,Western,Pacific,#E03A3E,#FFC758,#000000,Red,Yellow,Black
+CAR,Eastern,Metropolitan,#8E8E90,#E03A3E,#000000,Grey,Red,Black
+CHI,Western,Central,#E3263A,#000000,,Red,Black,
+COL,Western,Central,#8B2942,#01548A,#000000,Purple,Blue,Black
+CBJ,Eastern,Metropolitan,#00285C,#E03A3E,#A9B0B8,Navy,Red,Grey
+DAL,Western,Central,#000000,#006A4E,#C0C0C0,Black,Green,Light Grey
+DET,Eastern,Atlantic,#FFFFFF,#EC1F26,,White,Red,
+EDM,Western,Pacific,#003777,#E66A20,,Blue,Orange,
+FLA,Eastern,Atlantic,#C8213F,#002E5F,#D59C05,Red,Navy,Yellow
+LAK,Western,Pacific,#AFB7BA,#000000,,Grey,Black,
+MIN,Western,Central,#025736,#BF2B37,#EFB410,Green,Maroon,Yellow
+MTL,Eastern,Atlantic,#213770,#BF2F38,,Navy,Maroon,
+NSH,Western,Central,#FDBB2F,#002E62,,Yellow,Navy,
+NJD,Eastern,Metropolitan,#E03A3E,#000000,,Red,Black,
+NYI,Eastern,Metropolitan,#F57D31,#00529B,,Orange,Blue,
+NYR,Eastern,Metropolitan,#E6393F,#0161AB,,Red,Blue,
+OTT,Eastern,Atlantic,#E4173E,#D69F0F,#000000,Red,Gold,Black
+PHI,Eastern,Metropolitan,#F47940,#000000,,Orange,Black,
+PIT,Eastern,Metropolitan,#000000,#D1BD80,,Black,Tan,
+SJS,Western,Pacific,#F35F20,#05535D,#000000,Orange,Teal,Black
+STL,Western,Central,#0546A0,#FFC325,#101F48,Blue,Yellow,Navy
+TBL,Eastern,Atlantic,#013E7D,#C0C0C0,#000000,Blue,Grey,Black
+TOR,Eastern,Atlantic,#FFFFFF,#003777,,White,Blue,
+VAN,Western,Pacific,#07346F,#047A4A,#A8A9AD,Navy,Green,Grey
+WSH ,Eastern,Metropolitan,#FFFFFF,#000000,#CF132B,White,Black,Red
+WPG,Western,Central,#002E62,#0168AB,#A8A9AD,Navy,Blue,Grey
+VEG,Western,Pacific,#91764B,#000000,,Gold,Black,
